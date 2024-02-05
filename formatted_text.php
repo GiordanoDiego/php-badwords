@@ -1,3 +1,9 @@
+<?php
+    $paragraph = $_GET['paragraph'];
+    $badword = $_GET['badword'];
+    $paragraph_formatted = str_replace($badword, "***", $paragraph);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,7 +24,7 @@
         <header>
             <div class="container">
                 <h1 class="text-center">
-                    PHP Badword ***
+                    Formatted text ***
                 </h1>
             </div>
         </header>
@@ -27,22 +33,37 @@
         <!-- START MAIN -->
         <main>
             <div class="container">
-                <form action="formatted_text.php">
-                <div class="mb-3">
-                    Inserisci il testo da convalidare:
+                <div>
+                    <h5>
+                        Paragrafo originale
+                    </h5>
+                    <div>
+                        <?php
+                            echo $paragraph;
+                        ?>
+                    </div>
+                    <div>
+                        <h6>
+                            lunghezza paragrafo: <?php echo  strlen($paragraph)?>
+                        </h6>
+                    </div>
                 </div>
-                <textarea name="paragraph" id="" cols="30" rows="10"></textarea>
-                         
-                <div class="mb-3">
-                    Inserisci la parola da censurare:
+
+                <div class="mt-5">
+                    <h5>
+                        Paragrafo modificato
+                    </h5>
+                    <div>
+                        <?php
+                            echo $paragraph_formatted;
+                        ?>
+                    </div>
+                    <div>
+                        <h6>
+                            lunghezza paragrafo: <?php echo  strlen($paragraph_formatted)?>
+                        </h6>
+                    </div>
                 </div>
-                <input type="text" name="badword">
-  
-                <div class="mt-3">
-                    <button>Invia</button>
-                </div>
-                </form>
-                
             </div>
         </main>
         <!-- END MAIN -->
